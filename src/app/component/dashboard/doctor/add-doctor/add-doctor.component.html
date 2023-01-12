@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-divider></mat-divider>
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-grid-list cols="2">
+
+        <mat-grid-tile>
+            <div>
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Benito Camelo" formControlName="name" required>
+                    <mat-error *ngIf="form.get(name)?.invalid || form.get(name)?.dirty || form.get(name)?.touched">
+                        Ingrese su nombre </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Número</mat-label>
+                    <input matInput placeholder="0918273645" formControlName="mobile" required>
+                    <mat-error
+                        *ngIf="form.get(mobile)?.invalid || form.get(mobile)?.dirty || form.get(mobile)?.touched">
+                        Número Telefónico Válido </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="example@opcion.com" formControlName="email" required>
+                    <mat-error *ngIf="form.get(email)?.invalid || form.get(email)?.dirty || form.get(email)?.touched">
+                        Correo Electrónico </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Qualification</mat-label>
+                    <input matInput placeholder="ex .MBBS" formControlName="qualification" required>
+                    <mat-error
+                        *ngIf="form.get(qualification)?.invalid || form.get(qualification)?.dirty || form.get(qualification)?.touched">
+                        Correo Electrónico </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div>
+                <mat-label>Género</mat-label>
+                <br>
+                <mat-radio-group aria-label="Selecciona una opcion" color="primary" fprmControlName="gender">
+                    <mat-radio-button value="mujer">Mujer</mat-radio-button>
+                    <mat-radio-button value="hombre">Hombre</mat-radio-button>
+                    <mat-radio-button value="otro">Otros</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field>
+                    <mat-label>Departamento</mat-label>
+                    <mat-select formControlName="department" name="department">
+                        <mat-option *ngFor="let department of departments" [value]="department">
+                            {{department}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="form.get(birthdate)?.invalid || form.get(birthdate)?.dirty || form.get(birthdate)?.touched">
+                        Elije una Fecha de Nacimiento Valida</mat-error>
+                  </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</mat-dialog-content>
+
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="cancelRegistration()">Cancelar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)=" registerDoctor()" [disabled]="form.invalid">Registrar</button>
+  </div>
