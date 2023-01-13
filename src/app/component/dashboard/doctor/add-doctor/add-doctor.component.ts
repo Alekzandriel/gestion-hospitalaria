@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-add-doctor',
   templateUrl: './add-doctor.component.html',
@@ -11,16 +10,27 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddDoctorComponent implements OnInit {
   form!: FormGroup;
   title!: string;
-  name !: string;
-  mobile !: string;
-  email !: string;
-  gender !: string;
-  department !: string;
-  birthdate !: string;
-  qualification !: string;
+  name!: string;
+  mobile!: string;
+  email!: string;
+  gender!: string;
+  department!: string;
+  birthdate!: Date;
+  qualification!: string;
 
-  departments : string[] = ['Cardiología','Otorrinolaringología', 'Cuidados Intensivos', 'Odontologia', 'Medicina General','Urologia', 'Pediatria', 'Dermatologia','Traumatologia','Neurofisiologia']
-  
+  departments: string[] = [
+    'Cardiología',
+    'Otorrinolaringología',
+    'Cuidados Intensivos',
+    'Odontologia',
+    'Medicina General',
+    'Urologia',
+    'Pediatria',
+    'Dermatologia',
+    'Traumatologia',
+    'Neurofisiologia',
+  ];
+
   constructor(
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -45,17 +55,15 @@ export class AddDoctorComponent implements OnInit {
       gender: ['', [Validators.required]],
       department: ['', [Validators.required]],
       birthdate: ['', [Validators.required]],
-      qualification: ['',[Validators.required]],
-
-    })
+      qualification: ['', [Validators.required]],
+    });
   }
-  cancelRegistration (){
 
+  cancelRegistration() {
+    this.dialogRef.close();
   }
 
   registerDoctor() {
-    
+    this.dialogRef.close(this.form.value);
   }
-
-
 }

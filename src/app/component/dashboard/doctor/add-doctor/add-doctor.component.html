@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{title}}</h2>
+<h2 mat-dialog-tile>{{title}}</h2>
 <mat-divider></mat-divider>
 
 <mat-dialog-content [formGroup]="form">
@@ -9,8 +9,8 @@
             <div>
                 <mat-form-field>
                     <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="Benito Camelo" formControlName="name" required>
-                    <mat-error *ngIf="form.get(name)?.invalid || form.get(name)?.dirty || form.get(name)?.touched">
+                    <input matInput placeholder="Benito" formControlName="name" required>
+                    <mat-error *ngIf="form.get('name')?.invalid || form.get('name')?.dirty || form.get('name')?.touched">
                         Ingrese su nombre </mat-error>
                 </mat-form-field>
 
@@ -18,22 +18,22 @@
                     <mat-label>Número</mat-label>
                     <input matInput placeholder="0918273645" formControlName="mobile" required>
                     <mat-error
-                        *ngIf="form.get(mobile)?.invalid || form.get(mobile)?.dirty || form.get(mobile)?.touched">
+                        *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">
                         Número Telefónico Válido </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="example@opcion.com" formControlName="email" required>
-                    <mat-error *ngIf="form.get(email)?.invalid || form.get(email)?.dirty || form.get(email)?.touched">
+                    <mat-error *ngIf="form.get('email')?.invalid || form.get('email')?.dirty || form.get('email')?.touched">
                         Correo Electrónico </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Qualification</mat-label>
-                    <input matInput placeholder="ex .MBBS" formControlName="qualification" required>
+                    <mat-label>Cedula</mat-label>
+                    <input matInput placeholder="999999999-9" formControlName="qualification" required>
                     <mat-error
-                        *ngIf="form.get(qualification)?.invalid || form.get(qualification)?.dirty || form.get(qualification)?.touched">
+                        *ngIf="form.get('qualification')?.invalid || form.get('qualification')?.dirty || form.get('qualification')?.touched">
                         Correo Electrónico </mat-error>
                 </mat-form-field>
             </div>
@@ -43,7 +43,7 @@
             <div>
                 <mat-label>Género</mat-label>
                 <br>
-                <mat-radio-group aria-label="Selecciona una opcion" color="primary" fprmControlName="gender">
+                <mat-radio-group aria-label="Selecciona una opcion" color="primary" formControlName="gender">
                     <mat-radio-button value="mujer">Mujer</mat-radio-button>
                     <mat-radio-button value="hombre">Hombre</mat-radio-button>
                     <mat-radio-button value="otro">Otros</mat-radio-button>
@@ -64,7 +64,7 @@
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-                    <mat-error *ngIf="form.get(birthdate)?.invalid || form.get(birthdate)?.dirty || form.get(birthdate)?.touched">
+                    <mat-error *ngIf="form.get('birthdate')?.invalid || form.get('birthdate')?.dirty || form.get('birthdate')?.touched">
                         Elije una Fecha de Nacimiento Valida</mat-error>
                   </mat-form-field>
 
@@ -77,5 +77,5 @@
 
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close (click)="cancelRegistration()">Cancelar</button>
-    <button mat-button mat-dialog-close cdkFocusInitial (click)=" registerDoctor()" [disabled]="form.invalid">Registrar</button>
+    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial (click)=" registerDoctor()" [disabled]="form.invalid">Registrar</button>
   </div>

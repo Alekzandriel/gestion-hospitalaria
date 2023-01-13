@@ -8,14 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AppComponent } from 'src/app/app.component';
 import { AddDoctorComponent } from 'src/app/component/dashboard/doctor/add-doctor/add-doctor.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatRadioModule} from '@angular/material/radio';
+import { MatInputModule} from '@angular/material/input';
+import { MatSelectModule} from '@angular/material/select';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { AppComponent } from 'src/app/app.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -36,6 +37,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatCardModule,
@@ -53,7 +55,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap:[AppComponent],
