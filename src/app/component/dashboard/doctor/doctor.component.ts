@@ -11,12 +11,15 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 })
 export class DoctorComponent implements OnInit {
 
+  doctorsArr : any[] = [];
+
   constructor(
     public dialog : MatDialog,
     private dataApi : DataService,
     private _snackBar : MatSnackBar
   ){ }
   ngOnInit(): void {
+    this.getAllDoctors();
   }
   addDoctor(){
     const dialogConfig = new MatDialogConfig();
@@ -33,6 +36,18 @@ export class DoctorComponent implements OnInit {
         this.dataApi.addDoctor(data);
 this.openSnackBar("Doctor Registrado Exitosamente","OK")
       }
+    })
+  }
+
+  getAllDoctors(){
+    this.dataApi.getAllDoctors().subscribe(res =>{
+    this.doctorsArr = res.map((e : any) =>{
+      const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+    })
+  console.log(this.doctorsArr);
+
     })
   }
 
