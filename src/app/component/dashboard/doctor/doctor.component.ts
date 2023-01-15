@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Doctor } from 'src/app/shared/model/doctor';
 import { DataService } from 'src/app/shared/service/data.service';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
@@ -12,6 +16,11 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 export class DoctorComponent implements OnInit {
 
   doctorsArr : any[] = [];
+  displayedColumns: string[] = ['name', 'mobile', 'email', 'department' ,'gender', 'action'];
+  dataSource!: MatTableDataSource<Doctor>;
+
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
 
   constructor(
     public dialog : MatDialog,
@@ -47,11 +56,23 @@ this.openSnackBar("Doctor Registrado Exitosamente","OK")
         return data;
     })
   console.log(this.doctorsArr);
+     this.dataSource = new MatTableDataSource(this.doctorsArr);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 
     })
   }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

@@ -17,6 +17,9 @@ import { MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AppComponent } from 'src/app/app.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -38,6 +41,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatRippleModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   exports: [
     MatCardModule,
@@ -57,6 +63,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatRippleModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap:[AppComponent],
