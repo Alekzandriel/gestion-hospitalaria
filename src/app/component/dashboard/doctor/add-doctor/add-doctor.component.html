@@ -77,5 +77,5 @@
 
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close (click)="cancelRegistration()">Cancelar</button>
-    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial (click)=" registerDoctor()" [disabled]="form.invalid">Registrar</button>
+    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial (click)=" registerDoctor()" [disabled]="form.invalid">{{buttonName}}</button>
   </div>

@@ -16,4 +16,9 @@ export class DataService {
     return this.afs.collection("Doctor/").snapshotChanges();
   }
 
+
+  updateDoctor(doctor : any){
+    return this.afs.doc("Doctor/"+doctor.id).update(doctor);
+  }
+
 }

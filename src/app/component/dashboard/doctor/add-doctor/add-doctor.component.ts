@@ -17,6 +17,8 @@ export class AddDoctorComponent implements OnInit {
   department!: string;
   birthdate!: Date;
   qualification!: string;
+  id ! : string;
+  buttonName !: string;
 
   departments: string[] = [
     'Cardiología',
@@ -37,26 +39,28 @@ export class AddDoctorComponent implements OnInit {
     private dialogRef: MatDialogRef<AddDoctorComponent>
   ) {
     this.title = data.title;
+      this.id = data.id;
+      this.name = data.name;
+      this.mobile = data.mobile;
+      this.email = data.email;
+      this.gender = data.gender;
+      this.department = data.department;
+      this.birthdate = data.birthdate;
+      this.qualification = data.qualification;
+      this.buttonName = data.buttonName;
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      id: ['', []],
-      name: ['', [Validators.required]],
-      mobile: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(10),
-          Validators.minLength(10),
-        ],
-      ],
-      email: ['', [Validators.required, Validators.email]],
-      gender: ['', [Validators.required]],
-      department: ['', [Validators.required]],
-      birthdate: ['', [Validators.required]],
-      qualification: ['', [Validators.required]],
-    });
+      id: [this.id, []],
+      name : [this.name, [Validators.required]],
+      mobile : [this.mobile, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      email : [this.email, [Validators.required, Validators.email]],
+      gender : [this.gender, [Validators.required]],
+      department : [this.department, [Validators.required]],
+      birthdate : [this.birthdate, [Validators.required]],
+      qualification : [this.qualification,[Validators.required]]
+    })
   }
 
   cancelRegistration() {

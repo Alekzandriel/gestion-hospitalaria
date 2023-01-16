@@ -35,7 +35,8 @@ export class DoctorComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      title: 'Registrar Doctor'
+      title: 'Registrar Doctor',
+      buttonName : 'Registro'
     }
 
     const dialogRef = this.dialog.open(AddDoctorComponent,dialogConfig);
@@ -43,10 +44,35 @@ export class DoctorComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
         this.dataApi.addDoctor(data);
-this.openSnackBar("Doctor Registrado Exitosamente","OK")
+        this.openSnackBar("Doctor Registrado Exitosamente","OK")
       }
     })
   }
+
+  editDoctor(row : any){
+    if(row.id == null || row.name == null) {
+      return;
+    }
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = row;
+    dialogConfig.data.title = "Editar doctor";
+    dialogConfig.data.buttonName = "Actualizar";
+    dialogConfig.data.birthdate = row.birthdate.toDate();
+
+    const dialogRef = this.dialog.open(AddDoctorComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data) {
+        this.dataApi.updateDoctor(data);
+        this.openSnackBar("El Doctor se actualizo con exito.", "OK")
+      }
+    })
+  }
+
+
+  
 
   getAllDoctors(){
     this.dataApi.getAllDoctors().subscribe(res =>{
