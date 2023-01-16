@@ -1,0 +1,27 @@
+<h2 style="font-weight: 700;" class="m-3" color="primary">Doctor Information</h2>
+<mat-card class="m-3">
+  <mat-card-title>
+    {{doctorObj?.name}}
+  </mat-card-title>
+  <mat-card-subtitle>
+    {{doctorObj?.qualification}}
+  </mat-card-subtitle>
+  <mat-divider></mat-divider>
+
+    <div class="row pt-3">
+      <div class="col-md-6">
+        <mat-card-content>
+          <span> Email : </span> {{doctorObj.email}} <br>
+        <span> Mobile : </span> {{doctorObj.mobile}} <br>
+
+        </mat-card-content>
+      </div>
+      <div class="col-md-6">
+       <mat-card-content>
+        <span> Gender : </span> {{doctorObj.gender}} <br>
+        <span> Department : </span> {{doctorObj.department}}
+       </mat-card-content>
+      </div>
+    </div>
+</mat-card>
+

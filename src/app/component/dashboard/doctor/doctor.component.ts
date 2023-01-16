@@ -108,6 +108,11 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  viewDoctor(row : any){
+    window.open('/dashboard/doctor/'+row.id,'_blank');
+
+  }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
