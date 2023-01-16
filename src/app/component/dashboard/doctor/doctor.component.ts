@@ -1,3 +1,4 @@
+import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
@@ -71,7 +72,25 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  deleteDoctor(row : any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'Borrar Doctor',
+      doctorName : row.name
+      
+    }
 
+    const dialogRef = this.dialog.open(DeleteDoctorComponent,dialogConfig);
+  
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        this.dataApi.deleteDoctor(row.id);
+        this.openSnackBar("Doctor borrado con Exito","OK")
+      }
+    })
+  }
   
 
   getAllDoctors(){
