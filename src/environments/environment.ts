@@ -1,11 +1,11 @@
 export const environment = {
     production: false,
     firebaseConfig : {
-        apiKey: "AIzaSyBAyo_tAgE3kEnB25ObwC1LWh4RaTdPtgQ",
-        authDomain: "hospital-management-654cb.firebaseapp.com",
-        projectId: "hospital-management-654cb",
-        storageBucket: "hospital-management-654cb.appspot.com",
-        messagingSenderId: "91844570560",
-        appId: "1:91844570560:web:a4851d573516cc6d88ac25"
+        apiKey: "AIzaSyBwGaWZWCI4rtNo7JTVYRqPiB4eGSFQZCQ",
+        authDomain: "hospital-management-c883f.firebaseapp.com",
+        projectId: "hospital-management-c883f",
+        storageBucket: "hospital-management-c883f.appspot.com",
+        messagingSenderId: "418764781857",
+        appId: "1:418764781857:web:a61507abe0bc3f1751a660"
     }
 };

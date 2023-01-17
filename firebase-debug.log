@@ -7,7 +7,7 @@
 [debug] [2023-01-12T05:13:19.279Z] ----------------------------------------------------------------------
 [debug] 
 [debug] [2023-01-12T05:13:19.304Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-01-12T05:13:19.305Z] > authorizing via signed-in user (aah.anchaluisa@yavirac.edu.ec)
+[debug] [2023-01-12T05:13:19.305Z] > authorizing via signed-in user (kan.peralta@yavirac.edu.ec)
 [info] 
      ######## #### ########  ######## ########     ###     ######  ########
      ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
