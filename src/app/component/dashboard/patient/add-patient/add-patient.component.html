@@ -1,0 +1,77 @@
+<h2 mat-dialog-tile> {{ title }} </h2>
+<mat-divider></mat-divider>
+
+<mat-dialog-content [formGroup] = "form">
+
+    <mat-grid-list cols="2">
+
+      <mat-grid-tile>
+        <div>
+          <mat-form-field>
+            <mat-label>Full name</mat-label>
+            <input matInput
+                    placeholder="Ej. Carlos"
+                    formControlName="patient_name"
+                    required>
+            <mat-error *ngIf="form.get('patient_name')?.invalid || form.get('patient_name')?.dirty || form.get('patient_name')?.touched">Ingrese el nombre completo</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Numero de telefono : </mat-label>
+            <input matInput
+                    placeholder="9865452152"
+                    formControlName="mobile"
+                    required>
+            <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">Ingrese un numero de móvil valido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Receta</mat-label>
+            <input matInput
+                    placeholder="ex. medicamentos"
+                    formControlName="prescription"
+                    required>
+            <mat-error *ngIf="form.get('prescription')?.invalid || form.get('prescription')?.dirty || form.get('prescription')?.touched">Ingrese una receta válida </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div>
+          <mat-label class="me-3">Genero : </mat-label>
+          <br>
+          <mat-radio-group aria-label="Select a gender" color="primary" formControlName="gender">
+            <mat-radio-button value="Mujer">Mujer</mat-radio-button>
+            <mat-radio-button value="Hombre">Hombre</mat-radio-button>
+            <mat-radio-button value="Otros">Otros</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field class="mt-4">
+            <mat-label>Doctor</mat-label>
+            <mat-select formControlName="doctor_id" name="doctor_id">
+              <mat-option *ngFor="let doctor of allDoctors" [value]="doctor.doctor_id">
+                {{doctor.doctor_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Fecha de admisión</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="admission_date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.get('admission_date')?.invalid || form.get('admission_date')?.dirty || form.get('admission_date')?.touched">Elija una fecha de admisión válida</mat-error>
+          </mat-form-field>
+
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+</mat-dialog-content>
+
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="registerPatient()" [disabled]="form.invalid"> {{buttonName}} </button>
+</div>

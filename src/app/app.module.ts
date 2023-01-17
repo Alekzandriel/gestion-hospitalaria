@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-doctor/delete-doctor.component';
 import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
+import { AddPatientComponent } from './component/dashboard/patient/add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/vi
     AddDoctorComponent,
     DeleteDoctorComponent,
     ViewDoctorComponent,
+    AddPatientComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,4 +30,12 @@ export class DataService {
 
   }
 
+  addPatient(patient : any) {
+    patient.patient_id = this.afs.createId();
+    return this.afs.collection("Patient/").add(patient);
+  }
+
+  
 }
+
+
