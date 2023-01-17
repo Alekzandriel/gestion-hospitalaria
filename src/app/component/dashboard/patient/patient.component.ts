@@ -31,15 +31,9 @@ export class PatientComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getAllPatients();
-    this.getAllDoctors();
+    
   }
-  getAllDoctors() {
-    throw new Error('Method not implemented.');
-  }
-  getAllPatients() {
-    throw new Error('Method not implemented.');
-  }
+
 
   addPatient() {
     const dialogConfig = new MatDialogConfig();
@@ -58,7 +52,18 @@ export class PatientComponent {
       }
     })
   }
+  
+  getAllPatiens(){
 
+    this.dataApi.getAllPatients().subscribe(res => {
+      this.allPatients = res.map((e:any) => {
+        const data = e.payload.doc.data();
+        data.patient_id = e.payload.doc.id;
+        return data;
+      })
+    })
+  }
+  
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }

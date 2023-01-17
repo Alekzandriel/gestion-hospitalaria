@@ -35,6 +35,10 @@ export class DataService {
     return this.afs.collection("Patient/").add(patient);
   }
 
+  getAllPatients() {
+    return this.afs.collection("Patient/").snapshotChanges();
+  }
+
   
 }
 
