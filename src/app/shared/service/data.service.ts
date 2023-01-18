@@ -39,6 +39,18 @@ export class DataService {
     return this.afs.collection("Patient/").snapshotChanges();
   }
 
+  updatePatient(patient : any) {
+    return this.afs.doc("Patient/"+patient.patient_id).update(patient);
+  }
+
+  deletePatient(id : string) {
+    return this.afs.doc("Patient/"+id).delete();
+  }
+
+  getPatientById(id : any) {
+    return this.afs.doc("Patient/"+id).valueChanges();
+  }
+
   
 }
 

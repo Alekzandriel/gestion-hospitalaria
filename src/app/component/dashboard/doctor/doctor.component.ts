@@ -100,8 +100,8 @@ export class DoctorComponent implements OnInit {
         data.id = e.payload.doc.id;
         return data;
     })
-  console.log(this.doctorsArr);
-     this.dataSource = new MatTableDataSource(this.doctorsArr);
+    console.log(this.doctorsArr);
+    this.dataSource = new MatTableDataSource(this.doctorsArr);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
