@@ -18,6 +18,11 @@ import { FormsModule } from '@angular/forms';
 import { DeleteDoctorComponent } from './component/dashboard/doctor/delete-doctor/delete-doctor.component';
 import { ViewDoctorComponent } from './component/dashboard/doctor/view-doctor/view-doctor.component';
 import { AddPatientComponent } from './component/dashboard/patient/add-patient/add-patient.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { DeletePatientComponent } from './component/dashboard/patient/delete-patient/delete-patient.component';
+import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +34,10 @@ import { AddPatientComponent } from './component/dashboard/patient/add-patient/a
     DeleteDoctorComponent,
     ViewDoctorComponent,
     AddPatientComponent,
+    DeletePatientComponent,
+    ViewPatientComponent,
+    LoginComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -42,5 +51,6 @@ import { AddPatientComponent } from './component/dashboard/patient/add-patient/a
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [AddDoctorComponent]
 })
 export class AppModule {}

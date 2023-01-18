@@ -8,6 +8,7 @@ import { Doctor } from 'src/app/shared/model/doctor';
 import { Patient } from 'src/app/shared/model/patient';
 import { DataService } from 'src/app/shared/service/data.service';
 import { AddPatientComponent } from './add-patient/add-patient.component';
+import { DeletePatientComponent } from './delete-patient/delete-patient.component';
 
 @Component({
   selector: 'app-patient',
@@ -105,8 +106,8 @@ export class PatientComponent {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = row;
-    dialogConfig.data.title = "Edit patient";
-    dialogConfig.data.buttonName = "Update";
+    dialogConfig.data.title = "Editar Paciente";
+    dialogConfig.data.buttonName = "Actualizar";
     dialogConfig.data.admission_date = row.admission_date.toDate();
 
     console.log(dialogConfig.data);
@@ -122,6 +123,23 @@ export class PatientComponent {
     
   }
   deletePatient(row : any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title : 'Eliminar paciente',
+      patientName : row.patient_name
+    }
+
+    const dialogRef = this.dialog.open(DeletePatientComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data) {
+        console.log(row);
+        this.dataApi.deletePatient(row.patient_id);
+        this.openSnackBar("Paciente eliminado con exito.", "OK")
+      }
+    })
     
     
   }
