@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,12 @@ export class AuthService {
         })
       })
       .catch( error => {
-        alert('usuario no valido');
+        
+          Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'usuario no valido!',
+         })
       })
   }
 
@@ -41,7 +47,5 @@ export class AuthService {
   }
 
 }
-function swal(arg0: string, arg1: string, arg2: string) {
-  throw new Error('Function not implemented.');
-}
+
 
