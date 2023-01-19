@@ -1,9 +1,11 @@
 .sidenav-container {
   height: 100%;
+  
 }
 
 .sidenav {
   width: 200px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .sidenav .mat-toolbar {
@@ -18,14 +20,17 @@
 
 .mat-icon {
   margin-right: 15px;
+  
 }
 
 .mat-list-item{
-  color: #3f51b5;
+  color: #2783da;
+  
 }
 
 .active, mat-icon {
-  background-color: #3f51b5 !important;
+  background-color: #2783da !important;
   color: white !important;
   border-radius: 5px;
+  
 }

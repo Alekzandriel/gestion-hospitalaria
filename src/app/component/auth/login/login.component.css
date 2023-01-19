@@ -31,3 +31,10 @@ h1{
   margin-left: 145px;
 
 }
+svg:hover{
+  color:rgb(40, 139, 231);
+
+}
+svg{
+  color: white;
+}
