@@ -21,6 +21,7 @@ import { AddPatientComponent } from './component/dashboard/patient/add-patient/a
 import { LoginComponent } from './component/auth/login/login.component';
 import { DeletePatientComponent } from './component/dashboard/patient/delete-patient/delete-patient.component';
 import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
+import { CitasComponent } from './component/dashboard/citas/citas.component';
 
 
 
@@ -37,6 +38,7 @@ import { ViewPatientComponent } from './component/dashboard/patient/view-patient
     DeletePatientComponent,
     ViewPatientComponent,
     LoginComponent,
+    CitasComponent,
   
   ],
   imports: [

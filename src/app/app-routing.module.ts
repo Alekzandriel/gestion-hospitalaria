@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PatientComponent } from './component/dashboard/patient/patient.component';
 import { DoctorComponent } from './component/dashboard/doctor/doctor.component';
 import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
+import { CitasComponent } from './component/dashboard/citas/citas.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'login', pathMatch : 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path : 'doctor', component: DoctorComponent},
     {path : 'doctor/:id', component: ViewDoctorComponent},
     {path : 'patient/:id', component: ViewPatientComponent},
+    {path : 'citas' , component: CitasComponent},
   ], canActivate: [AuthguardGuard]},
   {path : 'login', component : LoginComponent}
 ];
