@@ -22,6 +22,8 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { DeletePatientComponent } from './component/dashboard/patient/delete-patient/delete-patient.component';
 import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
 import { CitasComponent } from './component/dashboard/citas/citas.component';
+import { AddCitasComponent } from './component/dashboard/citas/add-citas/add-citas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -39,6 +41,7 @@ import { CitasComponent } from './component/dashboard/citas/citas.component';
     ViewPatientComponent,
     LoginComponent,
     CitasComponent,
+    AddCitasComponent,
   
   ],
   imports: [
@@ -50,6 +53,7 @@ import { CitasComponent } from './component/dashboard/citas/citas.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
