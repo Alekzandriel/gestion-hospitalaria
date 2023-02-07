@@ -1,15 +1,7 @@
-mat-dialog-content{
-    width: 800px;
+form{
+    width: 500px;
 }
 
-.mat-grid-list {
-    overflow: hidden;
-}
-
-.mat-radio-button {
-    margin-right: 15px;
-}
-h2{
-    text-align: center;
-    margin: 10px;
-   }
+.example-container mat-form-field + mat-form-field {
+    margin-left: 10px;
+  }

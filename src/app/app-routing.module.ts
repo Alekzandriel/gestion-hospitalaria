@@ -7,9 +7,10 @@ import { PatientComponent } from './component/dashboard/patient/patient.componen
 import { DoctorComponent } from './component/dashboard/doctor/doctor.component';
 import { ViewPatientComponent } from './component/dashboard/patient/view-patient/view-patient.component';
 import { CitasComponent } from './component/dashboard/citas/citas.component';
+import { AppComponent } from './app.component'; 
 
 const routes: Routes = [
-  {path : '', redirectTo : 'login', pathMatch : 'full'},
+  {path : '', redirectTo : '', pathMatch : 'full'},
   {path : 'dashboard', children :
   [
     {path : '', redirectTo: 'patient', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path : 'doctor/:id', component: ViewDoctorComponent},
     {path : 'patient/:id', component: ViewPatientComponent},
     {path : 'citas' , component: CitasComponent},
+    {path : 'app' , component: AppComponent},
   ], canActivate: [AuthguardGuard]},
   {path : 'login', component : LoginComponent}
 ];
