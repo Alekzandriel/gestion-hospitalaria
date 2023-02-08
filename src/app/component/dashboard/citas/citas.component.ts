@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,9 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Doctor } from 'src/app/shared/model/doctor';
 import { Patient } from 'src/app/shared/model/patient';
 import { DataService } from 'src/app/shared/service/data.service';
-import { AddPatientComponent } from '../patient/add-patient/add-patient.component';
-import { DeletePatientComponent } from '../patient/delete-patient/delete-patient.component';
 import { AddCitasComponent } from './add-citas/add-citas.component'; 
+import { AddDoctorComponent } from '../doctor/add-doctor/add-doctor.component';
 
 @Component({
   selector: 'app-citas',
@@ -38,6 +36,28 @@ export class CitasComponent {
     this.getAllPatiens();
     this.getAllDoctors();
     
+  }
+
+  editDoctor(row : any){
+    if(row.id == null || row.name == null) {
+      return;
+    }
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = row;
+    dialogConfig.data.title = "Editar doctor";
+    dialogConfig.data.buttonName = "Actualizar";
+    dialogConfig.data.birthdate = row.birthdate.toDate();
+
+    const dialogRef = this.dialog.open(AddDoctorComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data) {
+        this.dataApi.updateDoctor(data);
+        this.openSnackBar("El Doctor se actualizo con exito.", "OK")
+      }
+    })
   }
 
 

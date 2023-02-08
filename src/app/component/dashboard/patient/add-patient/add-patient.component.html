@@ -12,8 +12,8 @@
             <input matInput
                     placeholder="Ej. Carlos"
                     formControlName="patient_name"
-                    required>
-            <mat-error *ngIf="form.get('patient_name')?.invalid || form.get('patient_name')?.dirty || form.get('patient_name')?.touched">Ingrese el nombre completo</mat-error>
+                    required pattern="[A-Za-z]+">
+            <mat-error *ngIf="form.get('patient_name')?.invalid || form.get('patient_name')?.dirty || form.get('patient_name')?.touched">Ingrese el nombre Valido </mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -21,18 +21,27 @@
             <input matInput
                     placeholder="9865452152"
                     formControlName="mobile"
-                    required>
-            <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">Ingrese un numero de móvil valido</mat-error>
+                    required pattern="[0-9]+">
+            <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">Ingrese un numero de Telefono valido</mat-error>
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Receta</mat-label>
-            <input matInput
-                    placeholder="ex. medicamentos"
-                    formControlName="prescription"
-                    required>
-            <mat-error *ngIf="form.get('prescription')?.invalid || form.get('prescription')?.dirty || form.get('prescription')?.touched">Ingrese una receta válida </mat-error>
+          <mat-form-field appearance="fill"  >
+            <label >Tipo de Sangre</label>
+            <mat-select  formControlName="prescription" >
+              <mat-option value="O+">O+</mat-option>
+              <mat-option value="A+">A+</mat-option>
+              <mat-option value="B+">B+</mat-option>
+              <mat-option value="AB+">AB+</mat-option>
+              <mat-option value="A-">A-</mat-option>
+              <mat-option value="O-">O-</mat-option>
+              <mat-option value="B-">B-</mat-option>
+              <mat-option value="AB-">AB-</mat-option>
+            </mat-select>
+      
+            <mat-hint align="end"></mat-hint>
           </mat-form-field>
+
+
         </div>
       </mat-grid-tile>
 

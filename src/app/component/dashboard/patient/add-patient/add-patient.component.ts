@@ -24,7 +24,7 @@ export class AddPatientComponent {
   doctor_name !: string;
 
   allDoctors : any[] = [];
-
+  
   constructor(
     private fb : FormBuilder,
     @Inject(MAT_DIALOG_DATA) data : any,
@@ -91,7 +91,7 @@ export class AddPatientComponent {
           return this.allDoctors[i].doctor_name;
         }
       }
-      return '';
+      return doctorId;
 
     }
   

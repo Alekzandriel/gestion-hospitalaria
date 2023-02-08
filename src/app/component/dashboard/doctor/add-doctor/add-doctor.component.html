@@ -9,24 +9,25 @@
             <div>
                 <mat-form-field>
                     <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="Benito" formControlName="name" required>
+                    <input matInput placeholder="Benito" 
+                    formControlName="name" required pattern="[A-Za-z]+">
                     <mat-error *ngIf="form.get('name')?.invalid || form.get('name')?.dirty || form.get('name')?.touched">
-                        Ingrese su nombre </mat-error>
+                        Ingrese el nombre Valido  </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <mat-label>Número</mat-label>
-                    <input matInput placeholder="0918273645" formControlName="mobile" required>
+                    <input matInput placeholder="0918273645" formControlName="mobile" required pattern="[0-9]+">
                     <mat-error
                         *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">
-                        Número Telefónico Válido </mat-error>
+                        Ingrese el numero Valido </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="example@opcion.com" formControlName="email" required>
+                    <input matInput placeholder="example@opcion.com" formControlName="email" required >
                     <mat-error *ngIf="form.get('email')?.invalid || form.get('email')?.dirty || form.get('email')?.touched">
-                        Correo Electrónico </mat-error>
+                        Ingrese Correo Electrónico Valido </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>

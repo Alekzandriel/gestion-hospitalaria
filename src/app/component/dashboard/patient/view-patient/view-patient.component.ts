@@ -10,6 +10,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class ViewPatientComponent {
   patient_id !: any;
   patientObj !: any;
+  
+ 
 
   constructor(
     private route : ActivatedRoute,
@@ -25,9 +27,11 @@ export class ViewPatientComponent {
   getPatientById() {
     this.dataApi.getPatientById(this.patient_id).subscribe(res => {
       this.patientObj = res;
-      this.patientObj.admission_date = this.patientObj.admission_date.toDate();
+      this.patientObj.admission_date = this.patientObj.admission_date.toDate() ;
       console.log(res);
     })
   }
+
+  
 
 }
