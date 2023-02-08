@@ -91,7 +91,7 @@ export class AddPatientComponent {
           return this.allDoctors[i].doctor_name;
         }
       }
-      return doctorId;
+      return "";
 
     }
   

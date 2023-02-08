@@ -8,11 +8,11 @@
       <mat-grid-tile>
         <div>
           <mat-form-field>
-            <mat-label>Full name</mat-label>
+            <mat-label>Nombre Paciente</mat-label>
             <input matInput
                     placeholder="Ej. Carlos"
                     formControlName="patient_name"
-                    required pattern="[A-Za-z]+">
+                    required pattern="[A-Za-z-' ']+">
             <mat-error *ngIf="form.get('patient_name')?.invalid || form.get('patient_name')?.dirty || form.get('patient_name')?.touched">Ingrese el nombre Valido </mat-error>
           </mat-form-field>
 
